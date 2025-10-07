@@ -1,0 +1,222 @@
+/*Note- This code is for a demo of ePlay v7. Expect bugs and problems.*/
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; 
+}
+body{
+    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.page-container {
+        height: 100%; 
+        width: 100%; 
+        display: flex; 
+        position: relative;
+        transition: transform 0.5s ease-in-out; 
+    }
+    .page-section {
+        height: 100%; 
+        width: 100vw;
+        flex-shrink: 0;
+        display: flex;
+    }
+    .navigation-dots {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 100;
+    }
+    .dot {
+        width: 12px;
+        height: 12px;
+        background-color: #bbb;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .dot.active {
+        background-color: #333;
+    }
+#splash-screen {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 9999; 
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#splash-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#splash-screen.hidden {
+    opacity: 0;
+    pointer-events: none; 
+}
+
+#main-content {
+    display: none;
+    padding: 20px;
+}
+@media (prefers-color-scheme: dark){
+    .sidelogo{
+filter: invert(1);
+}
+.clickerS{
+    background: url(icons/lsettings.png) no-repeat;
+}
+.sideNavOpen{
+    color: #fff;
+}
+}
+@media (prefers-color-scheme: light){
+    .sidelogo{
+filter: invert(0);
+}
+.clickerS{
+    background: url(icons/dsettings.png) no-repeat;
+}
+.sideNavOpen{
+    color: #000;
+}
+}
+.clicker{
+    height: 150px;
+    width: 150px;
+    border: solid;
+    border-radius: 16px;
+    transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease, background 0.3s ease;
+    background: url(icons/emall.png) no-repeat;
+    background-size: cover;
+    border: solid;
+    border-radius: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-color: #4a4a4aff;
+    cursor: pointer;
+}
+.clickerdm{
+    height: 150px;
+    width: 150px;
+    border: solid;
+    border-radius: 16px;
+    transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease, background 0.3s ease;
+    background: url(icons/dm.png) no-repeat;
+    background-size: cover;
+    border: solid;
+    border-radius: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-color: #4a4a4aff;
+    cursor: pointer;
+}
+.clickerh2{
+    height: 150px;
+    width: 150px;
+    border: solid;
+    border-radius: 16px;
+    transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease, background 0.3s ease;
+    background: url(icons/h2.png) no-repeat;
+    background-size: cover;
+    border: solid;
+    border-radius: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-color: #4a4a4aff;
+    cursor: pointer;
+}
+.clickerS{
+    height: 150px;
+    width: 150px;
+    border: solid;
+    border-radius: 16px;
+    transition: height 0.3s ease, width 0.3s ease, border-radius 0.3s ease, background-image 0.3s ease;
+    background-size: cover;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    border-color: #757575ff;
+    cursor: pointer;
+}
+.clicker:hover{
+    height: 200px;
+    width: 300px;
+    border-radius: 32px;
+    background: #000;
+}
+.clickerdm:hover{
+    height: 200px;
+    width: 300px;
+    border-radius: 32px;
+    background: #000;
+}
+.clickerh2:hover{
+    height: 200px;
+    width: 300px;
+    border-radius: 32px;
+    background: #000;
+}
+.clickerS:hover{
+    height: 200px;
+    width: 300px;
+    border-radius: 32px;
+    background: #000;
+}
+.errorCode{
+    color: #737373ff;
+    font-size: 12px;
+}
+.sideNavOpen{
+    object-fit: contain;
+}
+.clicker-container{
+  display: flex;
+  margin-top: 50px;
+}
+.clicker, .clickerS, .clickerdm, .clickerh2 {
+    position: relative;
+}
+
+.app-name {
+    transition: opacity 0.3s ease;
+    text-align: center;
+    display: none;
+    opacity: 0;
+    text-decoration: none;
+    color: #fff;
+}
+a{
+    text-decoration: none;
+}
+.clicker:hover .app-name,
+.clickerS:hover .app-name,
+.clickerdm:hover .app-name,
+.clickerh2:hover .app-name {
+    display: block;
+    text-align: center;
+    opacity: 1;
+}
+.clicker:hover, .clickerS:hover, .clickerdm:hover, .clickerh2:hover {
+    height: 200px;
+    width: 300px;
+    border-radius: 32px;
+    background: #000;
+    display: flex;
+    text-align: center;
+}
