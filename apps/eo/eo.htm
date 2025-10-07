@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">eMall | ePlay</title>
+    <link rel="shortcut icon"  id="favicon" href="https://i.ibb.co/NgBdDrsM/eplay.png">
+    <link rel="stylesheet" href="eo.css">
+    <link rel="stylesheet" href="eos.css">
+    <script src="incognito.js">
+    </script>
+  </head>
+  <body>
+    <div class="topnav">
+<img src="icons/emall.png" height="50px" width="50px">
+    </img>
+<div class="search-container">
+  <input type="text" id="searchInput" onkeyup="searchNow()" placeholder="Search" title="Click me to start searching for stuff on the eMall!">
+  <ul id="searchUL">
+    <li><a href="#" onclick="showDriveMad()">Drive Mad</a></li>
+    <li><a href="#">Hide 2</a></li>
+    <li><a href="#">v6 Theme Pack</a></li>
+    <li><a href="#">Tik Tok</a></li>
+    <li><a href="#">Copter</a></li>
+    <li><a href="#">ReelTime</a></li>
+    <li><a href="#">Seeker Frenzy</a></li>
+  </ul>
+</div>
+    </div>
+<p>
+  <!-- The app grid -->
+<div class="list" id="app-grid">
+    <div class="selector" onclick="showDriveMad()">
+        <img src="https://play-lh.googleusercontent.com/7l3WAPbei9MXrxnCzImpXi2VxjEBtgDl0htwvTnA-YqpJAuQJPpSiby1oB8LZMgD0IAy" class="icon">
+        <span class="selectorTitle">Drive Mad</span>
+        <br>
+        <span class="selectorInfo">Drive stupid cars in awful levels.</span>
+    </div>
+    <div class="selector" onclick="showHide2()">
+        <img src="icons/hide2.png" class="icon">
+        <span class="selectorTitle">Hide 2</span>
+        <br>
+        <span class="selectorInfo">Run across the long halls, dive into the crates, spray away your foes, or slap them in the face! Hide 2 is the first complex game created by ePlay Studios! Play now!</span>
+    </div>
+</div>
+</p>
+<!-- The app drivemad page -->
+<div id="app-drivemad-page">
+    <div class="drivemad-header">
+        <button class="back-button" onclick="hideDriveMad()">&lt; Back</button>
+    </div>
+    <div class="drivemad-content">
+        <div class="drivemad-icon-and-title">
+            <img src="https://play-lh.googleusercontent.com/7l3WAPbei9MXrxnCzImpXi2VxjEBtgDl0htwvTnA-YqpJAuQJPpSiby1oB8LZMgD0IAy" class="drivemad-icon">
+            <div class="drivemad-text">
+                <h2>Drive Mad</h2>
+                <p class="developer-name">Fancade</p>
+            </div>
+        </div>
+               <!-- The app description -->
+        <p class="drivemad-description">
+            Drive stupid cars in awful levels.
+        </p>
+        <!-- Screenshot container added here -->
+        <div class="screenshots-container">
+            <img src="screenshots/drivemad1.png" alt="App screenshot 1" class="screenshot-image">
+            <img src="screenshots/drivemad2.png" alt="App screenshot 2" class="screenshot-image">
+            <img src="screenshots/drivemad3.png" alt="App screenshot 3" class="screenshot-image">
+            <img src="screenshots/drivemad4.png" alt="App screenshot 4" class="screenshot-image">
+            <img src="screenshots/drivemad5.png" alt="App screenshot 5" class="screenshot-image">
+            <img src="screenshots/drivemad6.png" alt="App screenshot 6" class="screenshot-image">
+        </div>
+
+        <button class="install-drivemad" onclick="startDriveMad()">Get</button>
+        
+        <!-- The element that starts hidden -->
+        <div id="install-progress">
+            <p>Installed!</p>
+        </div>
+    </div>
+</div>
+
+<!-- The app hide2 page -->
+<div id="app-hide2-page">
+    <div class="hide2-header">
+        <button class="back-button" onclick="hideHide2()">&lt; Back</button>
+    </div>
+    <div class="hide2-content">
+        <div class="hide2-icon-and-title">
+            <img src="icons/hide2.png" class="hide2-icon">
+            <div class="hide2-text">
+                <h2>Hide 2</h2>
+                <p class="developer-name">ePlay Studios</p>
+            </div>
+        </div>
+               <!-- The app description -->
+        <p class="hide2-description">
+            Run across the long halls, dive into the crates, spray away your foes, or slap them in the face! Hide 2 is the first complex game created by ePlay Studios! Play now!
+            <br>
+            <h2>
+              CONTROLS
+            </h2>
+            <p></p>
+            <br>
+            W / &uparrow; / space - point your cursor at where you want to go and hold any of these keys!
+            <br>
+            1 / 2 / 3 - inventory slots, when you pick up pepperspray, press the key, usually 1.
+            <br>
+            Click - grab feature, used to grab band-aids or pepperspray
+            <br>
+            E - Get in crates
+            <br>
+            B - Get out of crates
+            <p>
+
+              <strong>
+                DISCLAMER - This game is currently beta and is getting updates. Please expect bugs and glitches.
+              </strong>
+            </p>
+            
+        </p>
+        <!-- Screenshot container added here -->
+        <div class="screenshots-container">
+            <img src="screenshots/hide21.png" alt="App screenshot 1" class="screenshot-image">
+            <img src="screenshots/hide22.png" alt="App screenshot 2" class="screenshot-image">
+            <img src="screenshots/hide23.png" alt="App screenshot 3" class="screenshot-image">
+            <img src="screenshots/hide24.png" alt="App screenshot 4" class="screenshot-image">
+            <img src="screenshots/hide25.png" alt="App screenshot 5" class="screenshot-image">
+            <img src="screenshots/hide26.png" alt="App screenshot 6" class="screenshot-image">
+        </div>
+
+        <button class="install-hide2" onclick="startHide2()">Get</button>
+        
+        <!-- The element that starts hidden -->
+        <div id="install-progress">
+            <p>Installed!</p>
+        </div>
+    </div>
+</div>
+  </body>
+  <script>
+      const input = document.getElementById('searchInput');
+  const ul = document.getElementById('searchUL');
+
+  function searchNow() {
+    const filter = input.value.toUpperCase();
+    const li = ul.getElementsByTagName('li');
+    
+    // Show the list if user typed something, else hide it
+    if (filter.length > 0) {
+      ul.style.display = 'block';
+    } else {
+      ul.style.display = 'none';
+    }
+    
+    for (let i = 0; i < li.length; i++) {
+      const a = li[i].getElementsByTagName('a')[0];
+      const txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+
+  // Show list when input or list is hovered
+  input.addEventListener('mouseenter', () => {
+    if (input.value.length > 0) {
+      ul.style.display = 'block';
+    }
+  });
+
+  ul.addEventListener('mouseenter', () => {
+    if (input.value.length > 0) {
+      ul.style.display = 'block';
+    }
+  });
+
+  // Hide list when neither input nor list is hovered and input is empty
+  function hideListIfNeeded() {
+    if (!input.matches(':hover') && !ul.matches(':hover') && input.value.length === 0) {
+      ul.style.display = 'none';
+    }
+  }
+
+  input.addEventListener('mouseleave', () => {
+    setTimeout(hideListIfNeeded, 100); // slight delay to allow moving cursor to list
+  });
+
+  ul.addEventListener('mouseleave', () => {
+    setTimeout(hideListIfNeeded, 100);
+  });
+</script>
+
+  </script>
+  <script src="installerScreen.js">
+    </script>
+    <script src="installed.js">
+    </script>
+  </html>
