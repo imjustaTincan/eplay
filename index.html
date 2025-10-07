@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">ePlay</title>
+    <script src="assets/js/welcome.js">
+      </script>
+      <script src="assets/js/acc.js">
+      </script>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/side.css">
+    <link rel="shortcut icon"  id="favicon" href="https://i.ibb.co/NgBdDrsM/eplay.png">
+  </head>
+<body>
+  <noscript>
+    <span class="errorCode">
+      ERR M62: JAVASCRIPT DISABLED- browser_Disable_js
+    </span>
+  </noscript>
+      <!-- Video splash screen container -->
+    <div id="splash-screen">
+        <video id="splash-video" autoplay muted playsinline>
+            <source src="assets/eplay.mp4" type="video/mp4">
+            Your browser does not support ePlay functions. Please upgrade.
+            <br>
+          <span class="errorCode">
+            <code>
+              ERR 89P: OUTDATED BROWSER- SPLASH_SCREEN ERROR
+            </code>
+          </span>
+        </video>
+    </div>
+    
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#">MeWallet</a>
+  <a href="#">eMall</a>
+  <a href="#">HelpCircle</a>
+</div>
+<span style="font-size:30px;cursor:pointer" class="sideNavOpen"onclick="openNav()">&#9776; <img src="https://i.ibb.co/NgBdDrsM/eplay.png" height="50" width="50" class="sidelogo"> </img> </span>
+<script>
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<script src="assets/js/apps.js">
+  </script>
+
+<div class="clicker-container">
+  <div class="page-container">
+    <section id="section1" class="page-section">
+  <a href="apps/eo/eo.htm">
+        <div class="clicker">
+          <span class="app-name">eMall</span>
+        </div>
+      </a>
+      <a href="apps/ik/ik.htm">
+<div class="clickerS">
+  <span class="app-name">Settings</span>
+</div>
+</a>
+<a href="apps/dm/dm.htm">
+<div class="clickerdm">
+  <span class="app-name">Drive Mad</span>
+</div>
+</a>
+<a href="apps/h2/h2.htm">
+<div class="clickerh2" id="clickerh2">
+  <span class="app-name">Hide 2</span>
+</div>
+</a>
+</section>
+<section id="section2" class="page-section">
+</section>
+<section id="section3" class="page-section">
+</section>
+</div>
+</div>
+<div class="navigation-dots">
+    <span class="dot active" data-target="section1"></span>
+    <span class="dot" data-target="section2"></span>
+    <span class="dot" data-target="section3"></span>
+</div>
+<script src="assets/js/scroll.js">
+  </script>
+    </body>
+    <script src="assets/js/splash.js"></script>
+    <!-- Add this to the end of the <body> on any other page -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedBackground = localStorage.getItem('background');
+        if (savedBackground) {
+            document.body.style.backgroundImage = `url('${savedBackground}')`;
+        }
+    });
+</script>
+    <script src="assets/js/incognito.js">
+    </script>
+    <script>
+  const input = document.getElementById('myInput');
+  const ul = document.getElementById('myUL');
+
+  function myFunction() {
+    const filter = input.value.toUpperCase();
+    const li = ul.getElementsByTagName('li');
+    
+    // Show the list if user typed something, else hide it
+    if (filter.length > 0) {
+      ul.style.display = 'block';
+    } else {
+      ul.style.display = 'none';
+    }
+    
+    for (let i = 0; i < li.length; i++) {
+      const a = li[i].getElementsByTagName('a')[0];
+      const txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+
+  // Show list when input or list is hovered
+  input.addEventListener('mouseenter', () => {
+    if (input.value.length > 0) {
+      ul.style.display = 'block';
+    }
+  });
+
+  ul.addEventListener('mouseenter', () => {
+    if (input.value.length > 0) {
+      ul.style.display = 'block';
+    }
+  });
+
+  // Hide list when neither input nor list is hovered and input is empty
+  function hideListIfNeeded() {
+    if (!input.matches(':hover') && !ul.matches(':hover') && input.value.length === 0) {
+      ul.style.display = 'none';
+    }
+  }
+
+  input.addEventListener('mouseleave', () => {
+    setTimeout(hideListIfNeeded, 100); // slight delay to allow moving cursor to list
+  });
+
+  ul.addEventListener('mouseleave', () => {
+    setTimeout(hideListIfNeeded, 100);
+  });
+</script>
+</body>
+</html>
