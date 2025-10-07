@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Settings | ePlay</title>
+    <link rel="shortcut icon"  id="favicon" href="https://i.ibb.co/NgBdDrsM/eplay.png">
+    <link rel="stylesheet" href="ik.css">
+    <link rel="stylesheet" href="iks.css">
+    <link rel="stylesheet" href="btns.css">
+    <script src="incognito.js">
+    </script>
+  </head>
+  <body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&rightarrow;</a>
+  <a href="index.html" onclick="closeNav()">Back to Home</a>
+  <a href="#ACCOUNT OPTIONS" onclick="closeNav()">Account Options</a>
+  <a href="#BACKGROUND" onclick="closeNav()">Background</a>
+  <a href="#GoIncognito SETTINGS" onclick="closeNav()">GoIncognito</a>
+</div>
+<span style="font-size:30px;cursor:pointer; margin-left: 20px; position: sticky;" class="sideNavOpen"onclick="openNav()">&leftarrow;</span>
+<script>
+  function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<center>
+<div class="section">
+    <span class="sectionHead">
+    ACCOUNT OPTIONS
+    </span>
+    <p>
+    <span class="details">
+        Some account options (pls change Jax X/ )
+    </span>
+</div>
+<p>
+<div class="section">
+    <span class="sectionHead">
+        BACKGROUND
+    </span>
+    <p>
+    <iframe src="ik2.htm" style="border: none; overflow: hidden;" height="400px" width="1000px">
+    </iframe>
+    </div>
+    <p>
+    <div class="section">
+        <span class="sectionHead">
+            GoIncognito SETTINGS
+        </span>
+        <p>
+            <span class="details">
+                GoIncognito can cloak ePlay to be whatever you want! Click a button to set ePlay to look like or type in a URL for ePlay to replicate!
+            </span>
+            <p>
+                <button class="classBtn" id="classBtn" onclick="classroom()" title="Classroom Cloak">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Google_Classroom_Logo.svg/1200px-Google_Classroom_Logo.svg.png" height="50px" width="50px">
+                </img>
+                </button>
+                <button class="googleBtn" id="googleBtn" onclick="google()" title="Google Cloak">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" height="50px" width="50px">
+                </img>
+                </button>
+                <button class="cleverBtn" id="cleverBtn" onclick="clever()" title="Clever Cloak">
+                  <img src="https://resources.finalsite.net/images/f_auto,q_auto/v1689877141/mooreschoolscom/emadd6nvplrnh1vsswjf/Clever-Logo.jpg" height="50px" width="50px">
+                </img>
+                </button>
+                <button class="zearnBtn" id="zearnBtn" onclick="zearn()" title="Zearn Cloak">
+                <img src="https://avatars.githubusercontent.com/u/4174832?s=200&v=4" height="50px" width="50px">
+                </img>
+                </button>
+                <button class="classlinkBtn" id="classlinkBtn" onclick="classlink()" title="ClassLink Cloak">
+                <img src="https://cdn.prod.website-files.com/5d6db64572061db9c481aaeb/60182c792aab73bd41f28d27_classlink-logo-vertical.png" height="50px" width="50px">
+                </img>
+                </button>
+                <button class="khanBtn" id="khanBtn" onclick="khan()" title="Khan Academy Cloak">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ-OpYSFRHyU33tMaW_Sf1ckUyNfpNw7rJSQ&s" height="50px" width="50px">
+                </img>
+                </button>
+                <button  class="resetBtn" id="resetBtn" onclick="reset()" title="Reset Cloak to default">
+                  <img src="https://i.ibb.co/NgBdDrsM/eplay.png" height="50px" width="50px">
+                </img>
+                </button>
+        </div>
+</center>
+  </body>
+  <html>
