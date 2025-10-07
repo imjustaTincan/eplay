@@ -1,0 +1,48 @@
+/*Note- This code is for a demo of ePlay v7. Expect bugs and problems.*/
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+}
+body{
+    transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@media (prefers-color-scheme: dark){
+    body{
+        background: #000;
+    }
+    *{
+        color: #fff;
+    }
+    div.section{
+        background: #212121ff;
+    }
+}
+@media (prefers-color-scheme: light){
+    body{
+        background: #fff;
+    }
+    *{
+        color: #000;
+    }
+    div.section{
+        background: #72727250
+    }
+}
+div.section{
+    border: solid;
+    border-radius: 32px;
+    height: 500px;
+    width: 75%;
+    border: transparent;
+}
+.sectionHead{
+    padding: 20px;
+    color: #e36e15ff;
+    font-size: 32px;
+    padding-bottom: 50px;
+    text-align: right;
+}

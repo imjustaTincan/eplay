@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change ePlay background</title>
+    <script src="incognito.js"></script>
+    <style>
+        body {
+            transition: background-image 0.5s ease-in-out, background-color 0.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: sans-serif;
+            color: white;
+            text-shadow: 1px 1px 3px black;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .image-button {
+            width: 100px;
+            height: 100px;
+            border: 3px solid white;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .image-button:hover {
+            transform: scale(1.1);
+            border-color: #007bff;
+        }
+
+        .upload-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            font-size: 16px;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            background-color: #007bff;
+        }
+
+        .upload-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <!-- Include the image-q library to determine dominant image color -->
+    <script src="https://cdn.jsdelivr.net/npm/image-q@4.0.0/dist/image-q.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Adjust ePlay background</h1>
+    </header>
+    <main>
+        <section class="gallery-container">
+            <!-- Buttons for preset images will be dynamically added here -->
+        </section>
+        <section class="upload-container" id="upload-btn" style="cursor: pointer;">
+            <h2>Upload image</h2>
+            <div class="input-group">
+                <input type="file" id="image-upload" accept="image/*">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryContainer = document.querySelector('.gallery-container');
+            const imageUpload = document.getElementById('image-upload');
+            const uploadBtn = document.getElementById('upload-btn');
+
+            // Array of preset images
+            const presetImages = [
+                'https://i.ibb.co/39L9VKJY/1.png',
+                'https://i.ibb.co/DHKhTsYp/2.png',
+                'https://picsum.photos/id/1040/1920/1080',
+                'https://picsum.photos/id/1050/1920/1080',
+                'https://picsum.photos/id/1063/1920/1080'
+            ];
+
+            // Function to change the background and hue buttons
+            const changeBackgroundAndHue = async (imageUrl) => {
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+                // Save the selected image URL to localStorage
+                localStorage.setItem('background', imageUrl);
+                const dominantColor = await getDominantColorFromUrl(imageUrl);
+                hueButtons(dominantColor);
+            };
+
+            // Function to create a button for an image
+            const createButton = (imageUrl) => {
+                const button = document.createElement('button');
+                button.classList.add('image-button');
+                button.style.backgroundImage = `url('${imageUrl}')`;
+                button.addEventListener('click', () => changeBackgroundAndHue(imageUrl));
+                galleryContainer.appendChild(button);
+            };
+
+            // Function to get the dominant color from an image using image-q
+            const getDominantColorFromUrl = async (imageUrl) => {
+                const image = new Image();
+                image.crossOrigin = 'anonymous';
+                image.src = imageUrl;
+                return new Promise((resolve, reject) => {
+                    image.onload = async () => {
+                        const pixel = await image_q.helper.extractColorFromImage(image);
+                        const rgb = `rgb(${pixel.r}, ${pixel.g}, ${pixel.b})`;
+                        resolve(rgb);
+                    };
+                    image.onerror = () => {
+                        console.error('Error loading image for color extraction.');
+                        resolve('rgba(0, 0, 0, 0.5)'); // Fallback color
+                    };
+                });
+            };
+
+            // Function to hue buttons based on the dominant background color
+            const hueButtons = (color) => {
+                const buttons = document.querySelectorAll('.image-button');
+                const uploadButton = document.getElementById('upload-btn');
+                buttons.forEach(button => {
+                    button.style.borderColor = color;
+                });
+                uploadButton.style.backgroundColor = color;
+            };
+
+            // Create buttons for all preset images
+            presetImages.forEach(url => createButton(url));
+
+            // Handle user image uploads
+            uploadBtn.addEventListener('click', () => {
+                imageUpload.click();
+            });
+
+            imageUpload.addEventListener('change', async (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const imageUrl = e.target.result;
+                        createButton(imageUrl);
+                        changeBackgroundAndHue(imageUrl);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // Initial background and hue setup
+            const savedBackground = localStorage.getItem('background');
+            if (savedBackground) {
+                changeBackgroundAndHue(savedBackground);
+            } else if (presetImages.length > 0) {
+                changeBackgroundAndHue(presetImages[0]);
+            }
+        });
+    </script>
+</body>
+</html>

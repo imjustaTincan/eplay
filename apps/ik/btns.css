@@ -1,0 +1,11 @@
+.classBtn, .googleBtn, .cleverBtn, .zearnBtn, .classlinkBtn, .khanBtn, .resetBtn{
+    height: 75px;
+    width: 75px;
+    border-radius: 16px;
+    margin-left: 20px;
+    background-position: center;
+    border: solid;
+}
+.classBtn:active, .resetBtn:active, .googleBtn:active, .cleverBtn:active, .zearnBtn:active, .classlinkBtn:active, .khanBtn:active{
+    border: #373737ff;
+}
